@@ -1,0 +1,52 @@
+<div class="container-fluid">
+  <!-- Reset Password page start-->
+  <div class="authentication-main">
+    <div class="row">
+      <div class="col-md-12 p-0">
+        <div class="auth-innerright">
+          <div class="authentication-box">
+            <div class="text-center"><img src="assets/images/endless-logo.png" alt=""></div>
+            <div class="card mt-4 p-4">
+              <form action="theme-form">
+                  <div class="form-group">
+                    <ngb-alert *ngIf="tokenErrorMessage" [type]="'danger'" [dismissible]="false">
+                      {{tokenErrorMessage}}
+                    </ngb-alert>
+                  </div>
+              </form>
+              <form class="theme-form" [formGroup]="form" *ngIf="!tokenErrorMessage"
+                (ngSubmit)="form.valid && onSubmit()" autocomplete="off">
+                <h5 class="f-16 mb-3 f-w-600">CREATE YOUR PASSWORD</h5>
+                <div class="form-group">
+                  <ngb-alert *ngIf="formResult === 1" [type]="'success'" [dismissible]="false">
+                    Reset password success! <br>
+                    <a [routerLink]="'/auth/login'">Click Here Login</a>
+                  </ngb-alert>
+                  <ngb-alert *ngIf="formResult === 0" [type]="'danger'" [dismissible]="false">
+                    {{errorMessage}}
+                  </ngb-alert>
+                </div>
+                <div class="form-group">
+                  <label class="col-form-label">New Password</label>
+                  <input formControlName="password" name="password" class="form-control" type="password"
+                    placeholder="*****">
+                </div>
+                <div class="form-group">
+                  <label class="col-form-label">Retype Password</label>
+                  <input formControlName="retypePassword" name="retypePassword" class="form-control" type="password"
+                    placeholder="*****">
+                </div>
+                <div class="form-group form-row mb-0">
+                  <div class="col-md-2">
+                    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Reset Password page end-->
+</div>

@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <div class="authentication-main">
+    <div class="row">
+      <div class="col-md-12 p-0">
+        <div class="auth-innerright">
+          <div class="reset-password-box">
+            <div class="text-center"><img src="assets/images/endless-logo.png" alt=""></div>
+            <div class="card mt-4 mb-0">
+              <h5 class="mb-4">Reset Your Password</h5>
+              <form class="theme-form"  [formGroup]="form" autocomplete="off" (ngSubmit)="form.valid && onSubmit()">
+                <div class="form-group">
+                  <ngb-alert *ngIf="formResult === 1" [type]="'success'" [dismissible]="false">
+                    An email with reset link has been sent to your email
+                  </ngb-alert>
+                  <ngb-alert *ngIf="formResult === 0" [type]="'danger'" [dismissible]="false">
+                    {{errorMessage}}
+                  </ngb-alert>
+                  <label class="col-form-label">Enter Your Email</label>
+                  <div class="form-row">
+                    <div class="col-md-9 col-xl-10">
+                      <input formControlName="email" name="email" class="form-control digits mb-1" type="email" placeholder="youremail@example.com">
+                    </div>
+                    <div class="col-md-2">
+                      <button class="btn btn-primary" [class.loader--text]="isLoading" type="submit" [disabled]="!form.valid || isLoading">
+                          <span>{{ isLoading ? 'Send...' : 'Send' }}</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

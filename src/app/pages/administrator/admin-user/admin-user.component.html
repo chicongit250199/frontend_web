@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            <h5>User Management</h5>
+        </div>
+        <div class="card-body">
+            <form class="form-inline mb-3" (ngSubmit)="search()">
+                <div class="input-group input-group-sm mr-2">
+                    <input type="text" class="form-control form-control-sm m-input" placeholder="Search by user"
+                           aria-label="Search By Title"
+                           id="generalSearch" [(ngModel)]="searchForm.search.user" name="searchByTitle">
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="fa fa-search"></i>
+                      </span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm mr-2" [disabled]="_loading$ | async">Search
+                    <i class="fas fa-spinner fa-spin" *ngIf="_loading$ | async"></i>
+                </button>
+            </form>
+
+            <div class="table-responsive mb-3">
+                <table class="table table-sm table-hover table-tworld align-middle">
+                    <thead>
+                    <tr>
+                        <th class="">Username</th>
+                        <th class="">Email</th>
+                        <th class="">Phone</th>
+                        <th class="">Created Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let user of pageResponse.rows">
+                        <td class="">{{user.username}}</td>
+                        <td class="">{{user.email}}</td>
+                        <td class="">{{user.phone}}</td>
+                        <td class="">{{user.created_date | date: 'dd/MM/yyyy hh:mm:ss'}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <div class="col-md-8 col-sm-12">
+                    <ngb-pagination [collectionSize]="pageResponse.count" [(page)]="page" [maxSize]="3"
+                                    [pageSize]="searchForm.size" [boundaryLinks]="true"></ngb-pagination>
+                </div>
+                <div class="col-md-4 col-sm-12 d-flex justify-content-center justify-content-md-end">
+                    <select title="Select Page Size" aria-label="Select Page change"
+                            class="form-control form-control-sm" style="width: auto" name="pageSize"
+                            [(ngModel)]="size">
+                        <option [ngValue]="10">10 items per page</option>
+                        <option [ngValue]="20">20 items per page</option>
+                        <option [ngValue]="50">50 items per page</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Container-fluid Ends -->

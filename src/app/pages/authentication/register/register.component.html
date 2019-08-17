@@ -1,0 +1,100 @@
+<div class="container-fluid">
+    <!-- sign up page start-->
+    <div class="auth-bg-video">
+      <video id="bgvid" poster="assets/images/other-images/coming-soon-bg.jpg" playsinline="" autoplay="" muted="" loop="">
+        <source src="assets/video/auth-bg.mp4" type="video/mp4">
+      </video>
+      <div class="authentication-box">
+        <div class="card mt-2 p-4">
+          <h4 class="text-center">AUTO CARE</h4>
+          <form [formGroup]="form" autocomplete="off" (ngSubmit)="form.valid && onSubmit()" class="theme-form">
+            <div class="form-group">
+              <ngb-alert *ngIf="formResult === 1" [type]="'success'" [dismissible]="false">
+                Register Success!
+              </ngb-alert>
+              <ngb-alert *ngIf="formResult === 0" [type]="'danger'" [dismissible]="false">
+                {{errorMessage}}
+              </ngb-alert>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <div class="form-group">
+                  <label class="col-form-label">Username</label>
+                  <input formControlName="username" class="form-control" type="username" placeholder="username">
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <label class="col-form-label">Password</label>
+                  <input formControlName="password" class="form-control" type="password" placeholder="**********">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <div class="form-group">
+                  <label class="col-form-label">Full Name</label>
+                  <input formControlName="fullName" class="form-control" type="text" placeholder="Full Name">
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <label class="col-form-label">Phone</label>
+                  <input formControlName="phone" class="form-control" type="text" placeholder="Phone">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-form-label">Email</label>
+              <input formControlName="email" class="form-control" type="email" placeholder="example@example.com"
+                     [appFormValid]="form.get('email')">
+            </div>
+            <div class="form-group">
+              <label class="col-form-label">Address</label>
+              <input formControlName="address" class="form-control" type="text" placeholder="Address">
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <div class="form-group">
+                  <label class="col-form-label">City</label>
+                  <input formControlName="city" class="form-control" type="text" placeholder="City">
+                </div>
+
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <label class="col-form-label">Country</label>
+                  <input formControlName="country" class="form-control" type="text" placeholder="Country">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-form-label">Please select your profile</label>
+              <div class="form-group m-t-15 custom-radio-ml">
+                <div class="radio radio-primary">
+                  <input id="car_owner" type="radio" value="{{USER_ROLE.USER}}" name="role" formControlName="role">
+                  <label for="car_owner">Car Owner</label>
+                </div>
+                <div class="radio radio-primary">
+                  <input id="garage" type="radio" value="{{USER_ROLE.GARAGE_SHOP}}" name="role" formControlName="role">
+                  <label for="garage">Garage services or Shop</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-sm-4">
+                <button class="btn btn-primary" [class.loader--text]="isLoading" type="submit" [disabled]="!form.valid || isLoading">
+                  <span>{{ isLoading ? 'Signup...' : 'Signup' }}</span>
+                </button>
+              </div>
+              <div class="col-sm-8">
+                <div class="text-left mt-2 m-l-20">Are you already user?  <a class="btn-link text-capitalize" [routerLink]="[ '/auth/login' ]">Login</a></div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- sign up page ends-->
+  </div>

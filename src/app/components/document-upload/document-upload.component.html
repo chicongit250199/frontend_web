@@ -1,0 +1,22 @@
+<form class="theme-form">
+    <label for="">Document File Upload</label>
+    <div class=" form-group row">
+        <div class="col-sm-3">
+            <select class="form-control" [(ngModel)]="documentType" name="select" [disabled]="fileExistedType || fileExistedType === 0 || uploadResult">
+                <option *ngFor="let item of documentTypes" [value]="item.id">{{item.value}}</option>
+            </select>
+        </div>
+        <div class="col-sm-5">
+            <input class="form-control" type="text" [(ngModel)]="fileName" name="fileName" [disabled]="fileExistedName || uploadResult"
+                (click)="!fileExistedName && fileInput.click()" autocomplete="off" />
+        </div>
+        <div class="col-sm-4">
+            <button *ngIf="!fileExistedName && uploadResult !== 1" [disabled]="isLoading || uploadResult" (click)="uploadFile()"
+                class="btn btn-default mr-1"><i *ngIf="isLoading" class="fa fa-spinner fa-spin"></i>&nbsp;Save</button>
+            <button *ngIf="!fileExistedName && fileName && !uploadResult" (click)="cancelFile()"
+                class="btn btn-default mr-1">Cancel</button>
+        </div>
+    </div>
+</form>
+
+<input style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>

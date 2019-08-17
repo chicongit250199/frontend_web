@@ -1,0 +1,221 @@
+.alert {
+  padding: 0.75rem 1.25rem;
+}
+
+$ng-select-custom-height: 31px;
+$ng-select-custom-height-focus-color: #716aca;
+$ng-select-custom-height-text-color: #575962;
+
+.ng-select {
+  .ng-select-container {
+    border-color: #ebedf2;
+    color: $ng-select-custom-height-text-color;
+  }
+
+  .ng-dropdown-panel {
+    border-color: #ebedf2;
+  }
+}
+
+.ng-select.custom-height {
+  .ng-select-container {
+    min-height: $ng-select-custom-height;
+    max-height: $ng-select-custom-height;
+    height: $ng-select-custom-height;
+    font-size: 12px;
+    line-height: 1.5;
+    border-color: #ebedf2;
+    color: $ng-select-custom-height-text-color;
+  }
+
+  .ng-dropdown-panel {
+    border-color: #ebedf2;
+  }
+
+  .ng-select.ng-select-single .ng-select-container .ng-value-container .ng-input {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.ng-select:focus-within {
+  .ng-select-container {
+    border-color: $ng-select-custom-height-focus-color;
+    box-shadow: none;
+  }
+
+  .ng-dropdown-panel {
+    border-color: $ng-select-custom-height-focus-color;
+    box-shadow: none;
+    padding-right: 1px;
+    padding-left: 1px;
+  }
+}
+
+.ng-select.custom-height:focus-within {
+  .ng-select-container {
+    border-color: $ng-select-custom-height-focus-color;
+    box-shadow: none;
+  }
+
+  .ng-dropdown-panel {
+    border-color: $ng-select-custom-height-focus-color;
+    box-shadow: none;
+    padding-right: 1px;
+    padding-left: 1px;
+  }
+}
+
+table {
+  tr {
+    td.minimum, th.minimum {
+      text-align: right;
+      vertical-align: middle;
+      max-width: 1px;
+      white-space: nowrap;
+    }
+  }
+}
+
+
+.btn-default {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+
+.btn-default.active, .btn-default:active, .open>.dropdown-toggle.btn-default {
+  color: #333;
+  background-color: #e6e6e6;
+  background-image: none;
+  border-color: #adadad;
+}
+
+.btn-default:active:focus,
+.btn-default:active:hover,
+.btn-default:hover {
+  color: #333;
+  background-color: #d4d4d4;
+  border-color: #8c8c8c;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+.loader--text {
+  position: absolute;
+  top: 200%;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.loader--text:after {
+  content: "Loading";
+  font-weight: bold;
+  animation-name: loading-text;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes loader {
+  15% {
+    transform: translateX(0);
+  }
+  45% {
+    transform: translateX(230px);
+  }
+  65% {
+    transform: translateX(230px);
+  }
+  95% {
+    transform: translateX(0);
+  }
+}
+@keyframes loading-text {
+  0% {
+    content: "Loading";
+  }
+  25% {
+    content: "Loading.";
+  }
+  50% {
+    content: "Loading..";
+  }
+  75% {
+    content: "Loading...";
+  }
+}
+.btn-default {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+
+.btn-default.active, .btn-default:active, .open>.dropdown-toggle.btn-default {
+  color: #333;
+  background-color: #e6e6e6;
+  background-image: none;
+  border-color: #adadad;
+}
+
+.btn-default:active:focus,
+.btn-default:active:hover,
+.btn-default:hover {
+  color: #333;
+  background-color: #d4d4d4;
+  border-color: #8c8c8c;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+.loader--text {
+  position: absolute;
+  top: 200%;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.loader--text:after {
+  content: "Loading";
+  font-weight: bold;
+  animation-name: loading-text;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes loader {
+  15% {
+    transform: translateX(0);
+  }
+  45% {
+    transform: translateX(230px);
+  }
+  65% {
+    transform: translateX(230px);
+  }
+  95% {
+    transform: translateX(0);
+  }
+}
+@keyframes loading-text {
+  0% {
+    content: "Loading";
+  }
+  25% {
+    content: "Loading.";
+  }
+  50% {
+    content: "Loading..";
+  }
+  75% {
+    content: "Loading...";
+  }
+}
+
+input:disabled,
+select:disabled {
+  cursor: not-allowed;
+}

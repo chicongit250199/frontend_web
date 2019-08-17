@@ -1,0 +1,16 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-title">{{title}}</h4>
+  <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title"
+          (click)="modal.dismiss('close')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="modal-body" [innerHTML]="message || confirmMessage">
+
+</div>
+<div class="modal-footer">
+  <button type="button" #buttonCancel class="btn btn-outline-secondary"
+          (click)="modal.dismiss('cancel click')">{{buttonCancelTitle}}</button>
+  <button type="button" class="btn btn-danger" (click)="modal.close('Ok click')">{{buttonConfirmTitle}}</button>
+</div>
