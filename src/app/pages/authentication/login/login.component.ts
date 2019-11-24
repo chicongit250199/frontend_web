@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
             username: ['', [Validators.required]],
             password: ['', Validators.required]
         });
+        console.log(this.loginForm);
     }
 
     ngOnInit() {
@@ -50,6 +51,7 @@ export class LoginComponent implements OnInit {
                         this.toster.error(err.error[0].message);
                     }
                 });
+
     }
 
     resendActivateUser() {
